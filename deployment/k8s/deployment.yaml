@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: multimodal-genai
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: multimodal-genai
+  template:
+    metadata:
+      labels:
+        app: multimodal-genai
+    spec:
+      containers:
+      - name: backend
+        image: yourdockerhub/multimodal-genai:latest
+        ports:
+        - containerPort: 8000
